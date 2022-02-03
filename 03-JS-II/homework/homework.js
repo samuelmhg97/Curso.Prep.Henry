@@ -147,20 +147,22 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
-  if (num1<0 || num2<0 || num3<0) {
-    return "Hay negativos"
-  } 
-  else if ((num1&&num2&&num3)>0) {
-    if (num1>num2 && num1>num3) {
-      return "Número 1 es mayor y positivo"
-    } else if (num3>num1 && num3>num2) {
-      return num3++
-    } 
-  } 
-  else {
-    return "Error"
+  if (num1===0 || num2===0 || num3===0) {
+    return "Error";
+  }
+  else if (num1<0 || num2<0 || num3 <0) {
+    return "Hay negativos";
+  }
+  else if (num3>num1 && num3>num2) {
+    return num3 + 1;
+  }
+  else if (num1>num2 && num1>num3) {
+    return "Número 1 es mayor y positivo";
+  } else {
+    return false;
   }
 }
+
 
 function esPrimo(numero) {
   // Devuelve "true" si "numero" es primo
@@ -168,11 +170,17 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  for (let i=2; i<=numero; i++) {
-    if (numero>=2) {
-    }
+if (numero < 2) {
+  return false;
+} else if (numero === 2) {
+  return true;
+} for (var i=2; i<numero ;i++) {
+  if (numero%i===0) {
+    return false;
   }
+} return true;
 }
+
 
 function esVerdadero(valor){
   //Escribe una función que reciba un valor booleano y retorne “Soy verdadero” 
@@ -209,7 +217,14 @@ function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
+  var i=0;
+  do {
+    numero = numero + 5
+    i++
+  } while (i<8); 
+  return numero;
 }
+
 
 
 // No modificar nada debajo de esta línea
